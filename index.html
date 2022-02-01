@@ -16,9 +16,9 @@
     <h1 class="e-title">Crossverse</h1>
 
     <div class="e-content">
-      <p> Cross-metaverse play to earn experience.</p>
+      <p> Cross-metaverse play to earn experience</p>
       <p> Explore worlds, solve quests, build robots, win battles,... have fun!</p>
-      <p class="small"> Comming soon, subscribe for updates:</p>
+      <p class="small"> Comming soon, subscribe for updates: </p>
 
       <form id="e-form" action="https://formspree.io/f/myyoeeoj" method="POST">
         <div class="e-form-input">
@@ -31,7 +31,7 @@
     </div>
 
     <div class="e-image">
-      <img src="robot.jpg" alt="Robot" width="536">
+      <img src="robot.jpg" alt="Robot" width="600" height="799">
     </div>
   </div>
 
@@ -40,42 +40,51 @@
       margin: 0;
       padding: 0;
     }
+
     body {
       background-color: #000;
     }
   
-    .e-container {
-      background-color: #000;
+    .e-container {     
       color: #fff;
-      width: 600px;
+      max-width: 600px;
       margin: 0 auto;
-      font-family: 'Barlow Condensed', sans-serif;      
+      font-family: 'Barlow Condensed', sans-serif;
+      width: 100%;
     }  
 
     .e-title {      
-      font-size: 72px;
+      font-size: 58px;
       text-transform: uppercase;
       text-align: center;
-      margin-bottom: 30px;
-      padding-top: 60px;
+      margin-bottom: 30px;      
+      padding: 60px 20px 0;
     }
 
     .e-content {
-      width: 326px;
+      font-size: 24px;
+      max-width: 326px;
       margin: 0 auto;
+      padding: 0 20px;
     }
 
-    .e-content p {
-      font-size: 32px;
+    .e-content .small {
+      font-size: 20px;
+    }
+
+    .e-content p {     
       margin-bottom: 1.1em;
       line-height: 1.4;
     }
-    .e-content p.small {
-      font-size: 24px;
+
+    .e-image {
+      text-align: center
     }
 
     .e-image img {
-      display: block;
+      max-width: 100%;
+      height: auto;
+      display: inline-block;      
     }
 
     /* Form */
@@ -91,7 +100,7 @@
     }
 
     .e-form-input {
-      width: 250px;
+      width: 200px;
       display: inline-block;
       vertical-align: bottom;
       margin-right: 10px;
@@ -120,12 +129,48 @@
       color: #ff6f6f;
       text-align: center;
     }
+    
+    @media screen and (min-width: 425px) {
+      .e-title {
+        font-size: 72px;
+      }
 
-    .fix {
-      position:fixed;
-      bottom:0px;
-      /*left:50%;*/
+      .e-content {
+        font-size: 32px;
+      }
+
+      .e-content .small {
+        font-size: 24px;
+      }
+
+      .e-form-input {
+        width: 250px;
+      }
     }
+    
+
+    @media screen and (min-width: 1025px) { 
+      .e-container {             
+        max-width: 10000px; 
+      }
+
+      .e-content {
+        max-width: 800px;
+      }
+
+      .e-content p {        
+        margin-bottom: .5em;
+      }
+
+      #e-form {
+        margin-top: 40px;
+      }
+
+      .e-form-input {
+        width: 720px;
+      }
+    }
+
   </style>
 
   <script>
