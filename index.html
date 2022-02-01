@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crossverse</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <div class="e-container">
+    <h1 class="e-title">Crossverse</h1>
+
+    <div class="e-content">
+      <p> Cross-metaverse play to earn experience.</p>
+      <p> Explore worlds, solve quests, build robots, win battles,... have fun!</p>
+      <p class="small"> Comming soon, subscribe for updates:</p>
+
+      <form id="e-form" action="https://formspree.io/f/myyoeeoj" method="POST">
+        <div class="e-form-input">
+          <input type="email" name="email" class="e-form-email" placeholder="joe.doe@gmail.com">
+          <div class="e-form-input-deco">&nbsp;</div>
+        </div>
+        <button id="e-form-button">G0</button>
+        <p id="e-form-status"></p>
+      </form>
+    </div>
+
+    <div class="e-image">
+      <img src="robot.jpg" alt="Robot" width="536">
+    </div>
+  </div>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #000;
+    }
+  
+    .e-container {
+      background-color: #000;
+      color: #fff;
+      width: 600px;
+      margin: 0 auto;
+      font-family: 'Barlow Condensed', sans-serif;      
+    }  
+
+    .e-title {      
+      font-size: 72px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 30px;
+      padding-top: 60px;
+    }
+
+    .e-content {
+      width: 326px;
+      margin: 0 auto;
+    }
+
+    .e-content p {
+      font-size: 32px;
+      margin-bottom: 1.1em;
+      line-height: 1.4;
+    }
+    .e-content p.small {
+      font-size: 24px;
+    }
+
+    .e-image img {
+      display: block;
+    }
+
+    /* Form */
+    #e-form .e-form-email {
+      font-family: 'Barlow Condensed', sans-serif;    
+      appearance: none;
+      border: 0;
+      font-size: 30px;
+      height: 60px;
+      color: #fff;
+      background-color: transparent;
+      outline: none;
+    }
+
+    .e-form-input {
+      width: 250px;
+      display: inline-block;
+      vertical-align: bottom;
+      margin-right: 10px;
+    }
+
+    .e-form-input-deco {
+      background-color: #fff;
+      border-radius: 999px;
+      width: 100%;
+      height: 5px;
+    }
+
+    #e-form-button {
+      background: #fff;
+      border: 0;
+      appearance: none;
+      font-size: 32px;
+      padding: 10px 15px;
+      height: 60px;
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+
+    #e-form-status {
+      font-size: 32px;
+      margin-top: 10px;
+      color: #ff6f6f;
+      text-align: center;
+    }
+
+    .fix {
+      position:fixed;
+      bottom:0px;
+      /*left:50%;*/
+    }
+  </style>
+
+  <script>
+    var form = document.getElementById("e-form");
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("e-form-status");
+      var data = new FormData(event.target);
+
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          status.innerHTML = "Thanks for your submission!";
+          form.reset()
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            } else {
+              status.innerHTML = "Oops! There was a problem submitting your form"
+            }
+          })
+        }
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+</script>
+</body>
+</html>
