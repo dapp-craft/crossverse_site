@@ -40,8 +40,8 @@ jobs:
         with:
           pin-name: 'crossverse_site'
           path: './'
-          pinata-api-key: 7c48bdf3184d32bdb9ec
-          pinata-secret-api-key: d4496e6e2d89cd6b6e3efa101eef8bb3e10e3e77046fd1f0fd167877a046e2da
+          pinata-api-key: '${{ secrets.PINATA_API_KEY }}'
+          pinata-secret-api-key: '${{ secrets.PINATA_SECRET_API_KEY }}'
           verbose: true
-          remove-old: false
+          remove-old: true
 
